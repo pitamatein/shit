@@ -1,0 +1,634 @@
+<!doctype html><html><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Server Health Report</title><style>body{background:#f5f5f5;color:#222;margin:0;padding:20px}pre{background:#fff;padding:20px;border:1px solid #ccc;border-radius:6px;overflow:auto;font-family:monospace;font-size:13px;line-height:1.45;white-space:pre-wrap}</style></head><body><pre>================ INCIDENT TIMELINE REPORT ================
+Generated: 2026-08-21 16:05:04
+
+Samples: 932
+Range:   2026-08-21 00:33:02 -&gt; 2026-08-21 16:04:02
+
+TOTAL INCIDENTS: 12
+ISOLATED ANOMALIES: 14
+
+TOP INCIDENTS
+----------------------------------------------------------
+[STORAGE — SUSTAINED INCIDENT]
+Start:       2026-08-21 15:31:02
+End:         2026-08-21 15:50:04
+Samples:     7
+Duration:    1142 sec
+Severity:    100/100
+Signals:     STORAGE(6) PHP(5) DB(1) 
+
+MEASUREMENTS
+  Metric              AVG        P95        MAX
+  FS_WRITE         704.64    1491.37    1579.62
+  FS_SYNC           75.29     200.76     201.12
+  INODE              0.26       1.00       1.39
+  FILE_CREATE      101.50     490.76     699.37
+  FILE_DELETE        0.04       0.05       0.05
+  SESSION            0.41       1.90       2.69
+  DB_CONN           15.25      54.62      62.97
+  DB_QUERY           0.14       0.20       0.22
+  PHP             1037.02    1763.26    1773.13
+  LOAD_RATIO         0.14       0.18       0.19
+
+ASSESSMENT
+  Filesystem/storage latency is the strongest signal; database query latency remains comparatively normal.
+ACTION
+  Investigate CloudLinux I/O/IOPS limits, host storage contention, filesystem queueing, backups/scanning, and storage-layer throttling before changing MariaDB I/O settings.
+----------------------------------------------------------
+[STORAGE — SUSTAINED INCIDENT]
+Start:       2026-08-21 15:01:02
+End:         2026-08-21 15:18:02
+Samples:     6
+Duration:    1020 sec
+Severity:    100/100
+Signals:     STORAGE(5) PHP(4) DB(1) 
+
+MEASUREMENTS
+  Metric              AVG        P95        MAX
+  FS_WRITE         486.00    1250.24    1453.91
+  FS_SYNC          437.40    1599.63    1899.22
+  INODE              0.37       0.98       1.00
+  FILE_CREATE        3.05       6.46       6.48
+  FILE_DELETE        0.04       0.06       0.06
+  SESSION            0.03       0.05       0.05
+  DB_CONN            9.75      38.04      50.03
+  DB_QUERY           0.13       0.16       0.17
+  PHP             1027.44    2339.74    2601.90
+  LOAD_RATIO         0.16       0.21       0.23
+
+ASSESSMENT
+  Filesystem/storage latency is the strongest signal; database query latency remains comparatively normal.
+ACTION
+  Investigate CloudLinux I/O/IOPS limits, host storage contention, filesystem queueing, backups/scanning, and storage-layer throttling before changing MariaDB I/O settings.
+----------------------------------------------------------
+[STORAGE — REPEATED INCIDENT]
+Start:       2026-08-21 14:25:03
+End:         2026-08-21 14:30:04
+Samples:     2
+Duration:    301 sec
+Severity:    100/100
+Signals:     STORAGE(1) PHP(1) DB(1) 
+
+MEASUREMENTS
+  Metric              AVG        P95        MAX
+  FS_WRITE         709.65    1320.30    1388.15
+  FS_SYNC            9.30      11.90      12.19
+  INODE              8.85      16.75      17.63
+  FILE_CREATE        2.06       3.79       3.98
+  FILE_DELETE        0.04       0.04       0.04
+  SESSION            0.04       0.05       0.05
+  DB_CONN           42.69      79.65      83.76
+  DB_QUERY           0.14       0.14       0.14
+  PHP              883.07    1421.96    1481.84
+  LOAD_RATIO         0.14       0.18       0.18
+
+ASSESSMENT
+  PHP execution is elevated while the basic storage and database tests remain comparatively normal.
+ACTION
+  Investigate application execution, PHP worker pressure, CloudLinux EP/NPROC/PMEM limits, and external application calls.
+----------------------------------------------------------
+[PHP — REPEATED INCIDENT]
+Start:       2026-08-21 07:02:06
+End:         2026-08-21 07:03:03
+Samples:     2
+Duration:    57 sec
+Severity:    100/100
+Signals:     PHP(2) STORAGE(1) 
+
+MEASUREMENTS
+  Metric              AVG        P95        MAX
+  FS_WRITE           0.41       0.62       0.64
+  FS_SYNC          104.29     197.75     208.13
+  INODE              9.57      18.13      19.08
+  FILE_CREATE        2.55       4.75       4.99
+  FILE_DELETE        0.03       0.03       0.03
+  SESSION            0.04       0.05       0.05
+  DB_CONN            1.65       1.69       1.70
+  DB_QUERY           0.10       0.10       0.10
+  PHP             3245.92    5004.96    5200.41
+  LOAD_RATIO         0.13       0.14       0.14
+
+ASSESSMENT
+  Filesystem/storage latency is the strongest signal; database query latency remains comparatively normal.
+ACTION
+  Investigate CloudLinux I/O/IOPS limits, host storage contention, filesystem queueing, backups/scanning, and storage-layer throttling before changing MariaDB I/O settings.
+----------------------------------------------------------
+[STORAGE — SUSTAINED INCIDENT]
+Start:       2026-08-21 03:19:02
+End:         2026-08-21 03:29:02
+Samples:     6
+Duration:    600 sec
+Severity:    100/100
+Signals:     STORAGE(6) PHP(5) 
+
+MEASUREMENTS
+  Metric              AVG        P95        MAX
+  FS_WRITE         709.10    1109.92    1232.11
+  FS_SYNC           71.50     103.09     103.58
+  INODE              0.07       0.09       0.09
+  FILE_CREATE       18.60      73.19      96.30
+  FILE_DELETE        0.04       0.04       0.04
+  SESSION            0.02       0.03       0.03
+  DB_CONN            9.54      37.17      48.96
+  DB_QUERY           0.11       0.13       0.13
+  PHP              907.65    1224.34    1313.85
+  LOAD_RATIO         0.29       0.36       0.36
+
+ASSESSMENT
+  Filesystem/storage latency is the strongest signal; database query latency remains comparatively normal.
+ACTION
+  Investigate CloudLinux I/O/IOPS limits, host storage contention, filesystem queueing, backups/scanning, and storage-layer throttling before changing MariaDB I/O settings.
+----------------------------------------------------------
+[STORAGE — REPEATED INCIDENT]
+Start:       2026-08-21 02:23:02
+End:         2026-08-21 02:27:02
+Samples:     2
+Duration:    240 sec
+Severity:    100/100
+Signals:     STORAGE(2) PHP(1) 
+
+MEASUREMENTS
+  Metric              AVG        P95        MAX
+  FS_WRITE         487.00     897.16     942.73
+  FS_SYNC           53.35      95.71     100.42
+  INODE              0.07       0.09       0.09
+  FILE_CREATE       49.25      93.46      98.37
+  FILE_DELETE        0.04       0.04       0.04
+  SESSION            2.87       5.42       5.71
+  DB_CONN            1.90       1.94       1.94
+  DB_QUERY           0.13       0.16       0.16
+  PHP              660.92     987.72    1024.04
+  LOAD_RATIO         0.16       0.17       0.17
+
+ASSESSMENT
+  PHP execution is elevated while the basic storage and database tests remain comparatively normal.
+ACTION
+  Investigate application execution, PHP worker pressure, CloudLinux EP/NPROC/PMEM limits, and external application calls.
+----------------------------------------------------------
+[STORAGE — REPEATED INCIDENT]
+Start:       2026-08-21 02:04:02
+End:         2026-08-21 02:09:02
+Samples:     3
+Duration:    300 sec
+Severity:    100/100
+Signals:     STORAGE(3) PHP(2) 
+
+MEASUREMENTS
+  Metric              AVG        P95        MAX
+  FS_WRITE         480.84    1062.27    1147.55
+  FS_SYNC           87.18     186.34     200.69
+  INODE              0.17       0.25       0.26
+  FILE_CREATE       99.50     188.90     198.83
+  FILE_DELETE        0.47       1.19       1.31
+  SESSION            0.04       0.06       0.07
+  DB_CONN            1.62       1.66       1.67
+  DB_QUERY           0.12       0.13       0.13
+  PHP              859.30    1431.57    1526.71
+  LOAD_RATIO         0.20       0.23       0.23
+
+ASSESSMENT
+  Filesystem/storage latency is the strongest signal; database query latency remains comparatively normal.
+ACTION
+  Investigate CloudLinux I/O/IOPS limits, host storage contention, filesystem queueing, backups/scanning, and storage-layer throttling before changing MariaDB I/O settings.
+----------------------------------------------------------
+[STORAGE — REPEATED INCIDENT]
+Start:       2026-08-21 01:25:03
+End:         2026-08-21 01:32:02
+Samples:     3
+Duration:    419 sec
+Severity:    100/100
+Signals:     STORAGE(3) PHP(3) 
+
+MEASUREMENTS
+  Metric              AVG        P95        MAX
+  FS_WRITE         186.81     398.61     428.24
+  FS_SYNC          218.52     335.09     349.82
+  INODE              6.35      17.00      18.88
+  FILE_CREATE       36.25      86.35      95.03
+  FILE_DELETE        0.14       0.32       0.35
+  SESSION            0.13       0.29       0.32
+  DB_CONN            1.94       2.05       2.07
+  DB_QUERY           0.13       0.15       0.16
+  PHP              836.47    1243.75    1304.13
+  LOAD_RATIO         0.17       0.25       0.26
+
+ASSESSMENT
+  Filesystem/storage latency is the strongest signal; database query latency remains comparatively normal.
+ACTION
+  Investigate CloudLinux I/O/IOPS limits, host storage contention, filesystem queueing, backups/scanning, and storage-layer throttling before changing MariaDB I/O settings.
+----------------------------------------------------------
+[DB — REPEATED INCIDENT]
+Start:       2026-08-21 02:50:04
+End:         2026-08-21 02:54:03
+Samples:     2
+Duration:    239 sec
+Severity:    73/100
+Signals:     DB(1) STORAGE(1) PHP(1) 
+
+MEASUREMENTS
+  Metric              AVG        P95        MAX
+  FS_WRITE          46.60      88.10      92.71
+  FS_SYNC          100.71     190.56     200.54
+  INODE              0.08       0.09       0.10
+  FILE_CREATE        1.77       3.15       3.30
+  FILE_DELETE        0.04       0.04       0.04
+  SESSION            0.03       0.03       0.03
+  DB_CONN           36.43      67.62      71.08
+  DB_QUERY           0.13       0.13       0.13
+  PHP              363.43     487.10     500.84
+  LOAD_RATIO         0.14       0.16       0.16
+
+ASSESSMENT
+  Filesystem/storage latency is the strongest signal; database query latency remains comparatively normal.
+ACTION
+  Investigate CloudLinux I/O/IOPS limits, host storage contention, filesystem queueing, backups/scanning, and storage-layer throttling before changing MariaDB I/O settings.
+----------------------------------------------------------
+[DB — REPEATED INCIDENT]
+Start:       2026-08-21 05:11:02
+End:         2026-08-21 05:15:04
+Samples:     2
+Duration:    242 sec
+Severity:    48/100
+Signals:     DB(2) 
+
+MEASUREMENTS
+  Metric              AVG        P95        MAX
+  FS_WRITE           0.18       0.18       0.18
+  FS_SYNC            2.65       4.21       4.38
+  INODE              0.12       0.17       0.18
+  FILE_CREATE        0.57       0.99       1.03
+  FILE_DELETE        0.04       0.04       0.04
+  SESSION            0.10       0.16       0.17
+  DB_CONN           62.45      73.03      74.21
+  DB_QUERY           0.13       0.14       0.14
+  PHP              228.31     281.61     287.54
+  LOAD_RATIO         0.10       0.12       0.12
+
+ASSESSMENT
+  Multiple performance signals were elevated; the probe cannot establish a single root cause from this episode alone.
+ACTION
+  Correlate the episode with external TTFB, CloudLinux LVE statistics, OpenLiteSpeed activity, and host-side monitoring.
+----------------------------------------------------------
+
+ISOLATED ANOMALIES / SPIKES
+----------------------------------------------------------
+[STORAGE — ISOLATED SPIKE]
+Time:        2026-08-21 09:30:04
+Severity:    57/100
+Signals:     STORAGE DB 
+  FS_WRITE     AVG=   83.98  P95=   83.98  MAX=   83.98
+  FS_SYNC      AVG=  189.68  P95=  189.68  MAX=  189.68
+  INODE        AVG=    1.74  P95=    1.74  MAX=    1.74
+  FILE_CREATE  AVG=    0.15  P95=    0.15  MAX=    0.15
+  FILE_DELETE  AVG=    0.04  P95=    0.04  MAX=    0.04
+  SESSION      AVG=    0.03  P95=    0.03  MAX=    0.03
+  DB_CONN      AVG=   74.42  P95=   74.42  MAX=   74.42
+  DB_QUERY     AVG=    0.10  P95=    0.10  MAX=    0.10
+  PHP          AVG=  485.12  P95=  485.12  MAX=  485.12
+  LOAD_RATIO   AVG=    0.10  P95=    0.10  MAX=    0.10
+  Assessment: Filesystem/storage latency is the strongest signal; database query latency remains comparatively normal.
+----------------------------------------------------------
+[STORAGE — ISOLATED SPIKE]
+Time:        2026-08-21 14:41:02
+Severity:    56/100
+Signals:     STORAGE 
+  FS_WRITE     AVG=   18.32  P95=   18.32  MAX=   18.32
+  FS_SYNC      AVG=  201.79  P95=  201.79  MAX=  201.79
+  INODE        AVG=    0.13  P95=    0.13  MAX=    0.13
+  FILE_CREATE  AVG=    3.32  P95=    3.32  MAX=    3.32
+  FILE_DELETE  AVG=    0.06  P95=    0.06  MAX=    0.06
+  SESSION      AVG=    0.03  P95=    0.03  MAX=    0.03
+  DB_CONN      AVG=    3.01  P95=    3.01  MAX=    3.01
+  DB_QUERY     AVG=    0.12  P95=    0.12  MAX=    0.12
+  PHP          AVG=  298.12  P95=  298.12  MAX=  298.12
+  LOAD_RATIO   AVG=    0.12  P95=    0.12  MAX=    0.12
+  Assessment: Filesystem/storage latency is the strongest signal; database query latency remains comparatively normal.
+----------------------------------------------------------
+[DB — ISOLATED SPIKE]
+Time:        2026-08-21 16:00:05
+Severity:    51/100
+Signals:     DB 
+  FS_WRITE     AVG=    0.20  P95=    0.20  MAX=    0.20
+  FS_SYNC      AVG=    1.04  P95=    1.04  MAX=    1.04
+  INODE        AVG=    0.49  P95=    0.49  MAX=    0.49
+  FILE_CREATE  AVG=    1.58  P95=    1.58  MAX=    1.58
+  FILE_DELETE  AVG=    0.04  P95=    0.04  MAX=    0.04
+  SESSION      AVG=    0.02  P95=    0.02  MAX=    0.02
+  DB_CONN      AVG=   92.53  P95=   92.53  MAX=   92.53
+  DB_QUERY     AVG=    0.13  P95=    0.13  MAX=    0.13
+  PHP          AVG=  213.64  P95=  213.64  MAX=  213.64
+  LOAD_RATIO   AVG=    0.12  P95=    0.12  MAX=    0.12
+  Assessment: Multiple performance signals were elevated; the probe cannot establish a single root cause from this episode alone.
+----------------------------------------------------------
+[DB — ISOLATED SPIKE]
+Time:        2026-08-21 03:50:04
+Severity:    39/100
+Signals:     DB 
+  FS_WRITE     AVG=    0.20  P95=    0.20  MAX=    0.20
+  FS_SYNC      AVG=    0.84  P95=    0.84  MAX=    0.84
+  INODE        AVG=    0.20  P95=    0.20  MAX=    0.20
+  FILE_CREATE  AVG=    0.12  P95=    0.12  MAX=    0.12
+  FILE_DELETE  AVG=    0.03  P95=    0.03  MAX=    0.03
+  SESSION      AVG=    0.03  P95=    0.03  MAX=    0.03
+  DB_CONN      AVG=   73.04  P95=   73.04  MAX=   73.04
+  DB_QUERY     AVG=    0.12  P95=    0.12  MAX=    0.12
+  PHP          AVG=  296.52  P95=  296.52  MAX=  296.52
+  LOAD_RATIO   AVG=    0.10  P95=    0.10  MAX=    0.10
+  Assessment: Multiple performance signals were elevated; the probe cannot establish a single root cause from this episode alone.
+----------------------------------------------------------
+[DB — ISOLATED SPIKE]
+Time:        2026-08-21 10:50:04
+Severity:    38/100
+Signals:     DB 
+  FS_WRITE     AVG=    1.55  P95=    1.55  MAX=    1.55
+  FS_SYNC      AVG=    1.40  P95=    1.40  MAX=    1.40
+  INODE        AVG=    0.07  P95=    0.07  MAX=    0.07
+  FILE_CREATE  AVG=    0.11  P95=    0.11  MAX=    0.11
+  FILE_DELETE  AVG=    0.03  P95=    0.03  MAX=    0.03
+  SESSION      AVG=    0.14  P95=    0.14  MAX=    0.14
+  DB_CONN      AVG=   70.84  P95=   70.84  MAX=   70.84
+  DB_QUERY     AVG=    0.09  P95=    0.09  MAX=    0.09
+  PHP          AVG=  217.24  P95=  217.24  MAX=  217.24
+  LOAD_RATIO   AVG=    0.08  P95=    0.08  MAX=    0.08
+  Assessment: Multiple performance signals were elevated; the probe cannot establish a single root cause from this episode alone.
+----------------------------------------------------------
+[DB — ISOLATED SPIKE]
+Time:        2026-08-21 11:10:03
+Severity:    36/100
+Signals:     DB 
+  FS_WRITE     AVG=    0.21  P95=    0.21  MAX=    0.21
+  FS_SYNC      AVG=    0.70  P95=    0.70  MAX=    0.70
+  INODE        AVG=    0.09  P95=    0.09  MAX=    0.09
+  FILE_CREATE  AVG=    0.12  P95=    0.12  MAX=    0.12
+  FILE_DELETE  AVG=    0.04  P95=    0.04  MAX=    0.04
+  SESSION      AVG=    0.03  P95=    0.03  MAX=    0.03
+  DB_CONN      AVG=   68.19  P95=   68.19  MAX=   68.19
+  DB_QUERY     AVG=    0.12  P95=    0.12  MAX=    0.12
+  PHP          AVG=  204.98  P95=  204.98  MAX=  204.98
+  LOAD_RATIO   AVG=    0.09  P95=    0.09  MAX=    0.09
+  Assessment: Multiple performance signals were elevated; the probe cannot establish a single root cause from this episode alone.
+----------------------------------------------------------
+[DB — ISOLATED SPIKE]
+Time:        2026-08-21 09:20:03
+Severity:    35/100
+Signals:     DB 
+  FS_WRITE     AVG=    0.17  P95=    0.17  MAX=    0.17
+  FS_SYNC      AVG=    0.80  P95=    0.80  MAX=    0.80
+  INODE        AVG=    0.12  P95=    0.12  MAX=    0.12
+  FILE_CREATE  AVG=    0.10  P95=    0.10  MAX=    0.10
+  FILE_DELETE  AVG=    0.03  P95=    0.03  MAX=    0.03
+  SESSION      AVG=    0.02  P95=    0.02  MAX=    0.02
+  DB_CONN      AVG=   65.87  P95=   65.87  MAX=   65.87
+  DB_QUERY     AVG=    0.11  P95=    0.11  MAX=    0.11
+  PHP          AVG=  206.29  P95=  206.29  MAX=  206.29
+  LOAD_RATIO   AVG=    0.08  P95=    0.08  MAX=    0.08
+  Assessment: Multiple performance signals were elevated; the probe cannot establish a single root cause from this episode alone.
+----------------------------------------------------------
+[DB — ISOLATED SPIKE]
+Time:        2026-08-21 08:50:04
+Severity:    35/100
+Signals:     DB 
+  FS_WRITE     AVG=    0.18  P95=    0.18  MAX=    0.18
+  FS_SYNC      AVG=    3.77  P95=    3.77  MAX=    3.77
+  INODE        AVG=    0.07  P95=    0.07  MAX=    0.07
+  FILE_CREATE  AVG=    0.11  P95=    0.11  MAX=    0.11
+  FILE_DELETE  AVG=    0.03  P95=    0.03  MAX=    0.03
+  SESSION      AVG=    0.03  P95=    0.03  MAX=    0.03
+  DB_CONN      AVG=   66.26  P95=   66.26  MAX=   66.26
+  DB_QUERY     AVG=    0.14  P95=    0.14  MAX=    0.14
+  PHP          AVG=  213.70  P95=  213.70  MAX=  213.70
+  LOAD_RATIO   AVG=    0.10  P95=    0.10  MAX=    0.10
+  Assessment: Multiple performance signals were elevated; the probe cannot establish a single root cause from this episode alone.
+----------------------------------------------------------
+[DB — ISOLATED SPIKE]
+Time:        2026-08-21 07:40:04
+Severity:    35/100
+Signals:     DB 
+  FS_WRITE     AVG=    0.17  P95=    0.17  MAX=    0.17
+  FS_SYNC      AVG=    4.64  P95=    4.64  MAX=    4.64
+  INODE        AVG=    0.07  P95=    0.07  MAX=    0.07
+  FILE_CREATE  AVG=    0.10  P95=    0.10  MAX=    0.10
+  FILE_DELETE  AVG=    0.03  P95=    0.03  MAX=    0.03
+  SESSION      AVG=    0.02  P95=    0.02  MAX=    0.02
+  DB_CONN      AVG=   67.09  P95=   67.09  MAX=   67.09
+  DB_QUERY     AVG=    0.12  P95=    0.12  MAX=    0.12
+  PHP          AVG=  207.55  P95=  207.55  MAX=  207.55
+  LOAD_RATIO   AVG=    0.10  P95=    0.10  MAX=    0.10
+  Assessment: Multiple performance signals were elevated; the probe cannot establish a single root cause from this episode alone.
+----------------------------------------------------------
+[DB — ISOLATED SPIKE]
+Time:        2026-08-21 10:05:03
+Severity:    27/100
+Signals:     DB 
+  FS_WRITE     AVG=    0.19  P95=    0.19  MAX=    0.19
+  FS_SYNC      AVG=    1.00  P95=    1.00  MAX=    1.00
+  INODE        AVG=    0.11  P95=    0.11  MAX=    0.11
+  FILE_CREATE  AVG=    0.10  P95=    0.10  MAX=    0.10
+  FILE_DELETE  AVG=    0.03  P95=    0.03  MAX=    0.03
+  SESSION      AVG=    0.02  P95=    0.02  MAX=    0.02
+  DB_CONN      AVG=   54.12  P95=   54.12  MAX=   54.12
+  DB_QUERY     AVG=    0.11  P95=    0.11  MAX=    0.11
+  PHP          AVG=  185.13  P95=  185.13  MAX=  185.13
+  LOAD_RATIO   AVG=    0.09  P95=    0.09  MAX=    0.09
+  Assessment: Multiple performance signals were elevated; the probe cannot establish a single root cause from this episode alone.
+----------------------------------------------------------
+[DB — ISOLATED SPIKE]
+Time:        2026-08-21 01:45:04
+Severity:    27/100
+Signals:     DB 
+  FS_WRITE     AVG=    0.28  P95=    0.28  MAX=    0.28
+  FS_SYNC      AVG=    1.37  P95=    1.37  MAX=    1.37
+  INODE        AVG=    0.09  P95=    0.09  MAX=    0.09
+  FILE_CREATE  AVG=    0.11  P95=    0.11  MAX=    0.11
+  FILE_DELETE  AVG=    0.04  P95=    0.04  MAX=    0.04
+  SESSION      AVG=    0.03  P95=    0.03  MAX=    0.03
+  DB_CONN      AVG=   53.87  P95=   53.87  MAX=   53.87
+  DB_QUERY     AVG=    0.13  P95=    0.13  MAX=    0.13
+  PHP          AVG=  291.67  P95=  291.67  MAX=  291.67
+  LOAD_RATIO   AVG=    0.08  P95=    0.08  MAX=    0.08
+  Assessment: Multiple performance signals were elevated; the probe cannot establish a single root cause from this episode alone.
+----------------------------------------------------------
+[DB — ISOLATED SPIKE]
+Time:        2026-08-21 06:24:02
+Severity:    26/100
+Signals:     DB 
+  FS_WRITE     AVG=    0.19  P95=    0.19  MAX=    0.19
+  FS_SYNC      AVG=    4.74  P95=    4.74  MAX=    4.74
+  INODE        AVG=    0.07  P95=    0.07  MAX=    0.07
+  FILE_CREATE  AVG=    0.90  P95=    0.90  MAX=    0.90
+  FILE_DELETE  AVG=    0.03  P95=    0.03  MAX=    0.03
+  SESSION      AVG=    0.02  P95=    0.02  MAX=    0.02
+  DB_CONN      AVG=   51.71  P95=   51.71  MAX=   51.71
+  DB_QUERY     AVG=    0.11  P95=    0.11  MAX=    0.11
+  PHP          AVG=  170.56  P95=  170.56  MAX=  170.56
+  LOAD_RATIO   AVG=    0.09  P95=    0.09  MAX=    0.09
+  Assessment: Multiple performance signals were elevated; the probe cannot establish a single root cause from this episode alone.
+----------------------------------------------------------
+[DB — ISOLATED SPIKE]
+Time:        2026-08-21 05:27:02
+Severity:    26/100
+Signals:     DB 
+  FS_WRITE     AVG=    0.18  P95=    0.18  MAX=    0.18
+  FS_SYNC      AVG=    1.02  P95=    1.02  MAX=    1.02
+  INODE        AVG=    0.09  P95=    0.09  MAX=    0.09
+  FILE_CREATE  AVG=    0.11  P95=    0.11  MAX=    0.11
+  FILE_DELETE  AVG=    0.05  P95=    0.05  MAX=    0.05
+  SESSION      AVG=    0.03  P95=    0.03  MAX=    0.03
+  DB_CONN      AVG=   52.47  P95=   52.47  MAX=   52.47
+  DB_QUERY     AVG=    0.13  P95=    0.13  MAX=    0.13
+  PHP          AVG=  181.78  P95=  181.78  MAX=  181.78
+  LOAD_RATIO   AVG=    0.11  P95=    0.11  MAX=    0.11
+  Assessment: Multiple performance signals were elevated; the probe cannot establish a single root cause from this episode alone.
+----------------------------------------------------------
+[STORAGE — ISOLATED SPIKE]
+Time:        2026-08-21 00:55:03
+Severity:    25/100
+Signals:     STORAGE 
+  FS_WRITE     AVG=    0.20  P95=    0.20  MAX=    0.20
+  FS_SYNC      AVG=  100.39  P95=  100.39  MAX=  100.39
+  INODE        AVG=    0.10  P95=    0.10  MAX=    0.10
+  FILE_CREATE  AVG=   92.83  P95=   92.83  MAX=   92.83
+  FILE_DELETE  AVG=    0.06  P95=    0.06  MAX=    0.06
+  SESSION      AVG=    0.03  P95=    0.03  MAX=    0.03
+  DB_CONN      AVG=    2.06  P95=    2.06  MAX=    2.06
+  DB_QUERY     AVG=    0.12  P95=    0.12  MAX=    0.12
+  PHP          AVG=  390.76  P95=  390.76  MAX=  390.76
+  LOAD_RATIO   AVG=    0.09  P95=    0.09  MAX=    0.09
+  Assessment: Filesystem/storage latency is the strongest signal; database query latency remains comparatively normal.
+----------------------------------------------------------
+
+SUMMARY STATISTICS
+==========================================================
+FS_WRITE Avg=   20.23  P50=    0.19  P95=   32.35
+FS_SYNC  Avg=    8.82  P50=    1.00  P95=   11.14
+INODE    Avg=    0.28  P50=    0.07  P95=    0.53
+DB_CONN  Avg=    5.36  P50=    1.75  P95=   35.14
+DB_QUERY Avg=    0.22  P50=    0.12  P95=    0.17
+PHP      Avg=  183.52  P50=  136.06  P95=  289.49
+
+HEALTH ASSESSMENT
+==========================================================
+Storage:    HEALTHY
+Database:   DEGRADED
+PHP:        HEALTHY
+
+LIKELY ROOT CAUSE
+==========================================================
+Database latency exceeds expected values.
+Investigate MariaDB contention, locking, buffer pool pressure, and backend storage performance.
+
+SERVER DISCOVERY
+==========================================================
+CPU model:             AMD EPYC 9654 96-Core Processor
+Logical CPUs visible:  192
+Physical cores:        192
+CPU sockets:            1
+Threads/core:           1
+RAM visible:            314.3 GB
+Storage type:           NOT DETECTED
+Operating system:       N/A
+Kernel:                 4.18.0-553.124.4.lve.el8.x86_64
+PHP:                    8.4.21
+OpenLiteSpeed:          DETECTED
+MariaDB:                10.6.27-MariaDB
+Discovery timestamp:    2026-08-21 00:33:03
+
+CLOUDLINUX / LVE STATUS
+----------------------------------------------------------
+CloudLinux status:     DETECTED
+Detection indicators:  /proc/lve
+LVE tooling detected:   YES
+LVE information access: NO
+Parsed LVE limits:     NOT AVAILABLE
+Cgroup available:      NO
+
+CONFIGURATION RECOMMENDATIONS
+==========================================================
+
+CLOUDLINUX / OPENLITESPEED RECOMMENDATIONS
+----------------------------------------------------------
+CloudLinux is positively identified.
+CloudLinux is identified, but LVE limits cannot be queried from this PHP environment.
+Do NOT infer CPU, PMEM, EP, NPROC, IO or IOPS limits from the absence of cgroup data.
+Obtain those values from CloudLinux/LVE Manager or the hosting provider before changing account limits.
+CPU guidance: PHP sees 192 logical CPU(s). This is an execution-environment value and must not automatically be interpreted as the physical host CPU count.
+EP: not accessible. Review in LVE Manager.
+NPROC: not accessible. Review in LVE Manager.
+I/O limit: not accessible. This is especially important because filesystem latency is part of the current health assessment.
+IOPS limit: not accessible. Review in LVE Manager.
+PMEM: not accessible. Do not increase PHP worker concurrency without confirming the account&#039;s memory limit.
+
+MARIADB RECOMMENDATIONS
+----------------------------------------------------------
+InnoDB buffer pool:
+  Detected: 16.00 GiB
+  Hardware-based starting range: 138.3–190.2 GiB
+  Assessment: buffer pool appears conservative relative to detected RAM. Consider increasing gradually while monitoring total memory consumption.
+
+max_connections:
+  Current: 4096
+  Assessment: relatively high for shared hosting. Increasing this further can increase memory pressure substantially.
+
+InnoDB I/O capacity:
+  innodb_io_capacity:     1000
+  innodb_io_capacity_max: 2000
+  Assessment: values should be tuned according to actual storage capability and database workload. NVMe can justify substantially higher values than rotational storage, but measurement should drive the change.
+
+Per-operation memory:
+  tmp_table_size:       0.03 GiB
+  max_heap_table_size:  0.09 GiB
+  Recommendation: avoid unnecessarily large values. These settings can contribute to significant memory consumption under concurrent workloads.
+
+Durability:
+  innodb_flush_log_at_trx_commit: 2
+  innodb_flush_method: O_DIRECT
+  Recommendation: preserve transactional durability unless there is an explicit, understood trade-off being made. Do not use durability changes as a generic response to filesystem latency.
+
+Query cache:
+  query_cache_size: 1048576
+  Assessment: query cache is non-zero. Review whether it provides measurable benefit for the actual workload.
+
+CROSS-SYSTEM DIAGNOSTIC
+----------------------------------------------------------
+Database latency is elevated. Review MariaDB configuration, locking, buffer pool pressure, connection concurrency, and storage latency.
+
+METRIC REFERENCE
+==========================================================
+FS_WRITE
+  Buffered filesystem write latency.
+
+FS_SYNC
+  Time required to flush writes to storage.
+
+INODE
+  Filesystem metadata create/delete latency.
+
+DB_CONN
+  Time required to establish/use the configured
+  MariaDB connection.
+
+DB_QUERY
+  Execution time of a trivial SELECT 1 query.
+
+PHP
+  Total probe execution time.
+
+LOAD_RATIO
+  System load divided by the CPU count visible
+  to the PHP environment.
+
+  This is a workload indicator, not a direct
+  CPU-utilization percentage.
+
+SERVER_INFO
+  Hardware, software, CloudLinux/LVE, cgroup,
+  OpenLiteSpeed and MariaDB discovery information.
+
+IMPORTANT
+  &quot;CPU visible to PHP&quot; and &quot;RAM visible to PHP&quot;
+  are not automatically equivalent to physical
+  bare-metal resources.
+
+  CloudLinux/LVE limits may be imposed independently
+  of generic Linux cgroups.
+</pre></body></html>
