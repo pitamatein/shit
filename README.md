@@ -1,4 +1,4 @@
-# Server Health Incident Tracker
+# Server Health Incident Tracker (SHIT)
 
 A lightweight PHP health-monitoring and diagnostic toolkit for shared
 web servers running **OpenLiteSpeed**, **CloudLinux**, **MariaDB**, and
