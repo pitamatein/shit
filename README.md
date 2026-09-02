@@ -570,11 +570,7 @@ A typical workflow is:
 
 ## License
 
-Add the project's chosen license here before publishing the repository.
-
-If this project is intended to be redistributed, an OSI-approved license
-such as MIT, BSD-2-Clause, or GPL-3.0 can be selected according to the
-project's intended reuse requirements.
+MIT License.
 
 ## Status
 
